@@ -1,0 +1,3 @@
+[submodule "frotz"]
+	path = frotz
+	url = ../../curiousdannii/frotz.git
