@@ -1,0 +1,33 @@
+body {
+    background: #111;
+    color: #ddd;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+a {
+    color: #aee;
+}
+
+#games {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#games h2 {
+    flex: 300px;
+}
+
+#games h2 img {
+    display: block;
+    margin: 0 auto;
+}
+
+canvas {
+    height: 400px;
+    width: 640px;
+}
