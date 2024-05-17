@@ -26,8 +26,3 @@ a {
     display: block;
     margin: 0 auto;
 }
-
-canvas {
-    height: 400px;
-    width: 640px;
-}
