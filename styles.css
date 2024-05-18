@@ -26,3 +26,8 @@ a {
     display: block;
     margin: 0 auto;
 }
+
+#textinput {
+    position: absolute;
+    left: -10000px;
+}
