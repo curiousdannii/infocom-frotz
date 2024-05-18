@@ -28,6 +28,8 @@ docker run --rm -t \
             sdl \\
     "
 
+#            find /tmp/emscripten_temp -type f -exec sha256sum {} \; \\
+
 ./src/makehtml.mjs
 
 cp data/* dist/
