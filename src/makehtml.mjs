@@ -42,7 +42,7 @@ const template = `<!DOCTYPE html>
 <head>
     <meta charset="utf-8">
     <title>TITLE</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,interactive-widget=resizes-content">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>

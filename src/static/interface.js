@@ -3,6 +3,22 @@
 const canvas_elem = document.getElementById('canvas')
 const textinput_elem = document.getElementById('textinput')
 
+// Prevent iOS from zooming in when focusing input, but allow Android to still pinch zoom
+// As they handle the maximum-scale viewport meta option differently, we will conditionally add it only in iOS
+// Idea from https://stackoverflow.com/a/62750441/2854284
+if (/iPhone OS/i.test(navigator.userAgent)) {
+    document.head.querySelector('meta[name="viewport"]').content = 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1'
+}
+
+visualViewport.addEventListener('resize', () => {
+    const height = visualViewport.height
+    document.documentElement.style.height = `${height}px`
+
+    // Safari might have scrolled weirdly, so try to put it right
+    window.scrollTo(0, 0)
+    setTimeout(() => window.scrollTo(0, 0), 500)
+})
+
 // Mobile input event handlers
 canvas_elem.addEventListener('touchstart', ev => {
     textinput_elem.focus()
