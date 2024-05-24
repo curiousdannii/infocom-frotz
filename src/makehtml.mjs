@@ -53,8 +53,8 @@ const template = `<!DOCTYPE html>
             <p><a href="index.html" target="_blank">Other games</a></p>
         </div>
         <div id="inner">
-            <div id="game">
-                <canvas id="canvas"></canvas>
+            <div id="game">ARTHURMODES
+                <canvas id="canvas" height="400"></canvas>
                 <textarea id="textinput" autocapitalize="off" rows="1"></textarea>
             </div>
         </div>
@@ -65,8 +65,19 @@ const template = `<!DOCTYPE html>
   </body>
 </html>`
 
+const arthurmodes = `
+                <div id="arthurmodes">
+                    <p data-keycode="112"><span class="arthurfull">Graphics</span><span class="arthurshort">Graph</span></p>
+                    <p data-keycode="113">Map</p>
+                    <p data-keycode="114"><span class="arthurfull">Inventory</span><span class="arthurshort">Inv</span></p>
+                    <p data-keycode="115">Score</p>
+                    <p data-keycode="116">Room</p>
+                    <p data-keycode="117"><span class="arthurfull">Text only</span><span class="arthurshort">Text</span></p>
+                </div>`
+
 for (const story of storyfiles) {
     const html = template
+        .replace('ARTHURMODES', story.id === 'arthur' ? arthurmodes : '')
         .replace('BLORB', story.blorb)
         .replace('MANUAL', story.manual ? `<p><a href="${story.manual}" target="_blank">Manual</a></p>` : '')
         .replace('SHORTTITLE', story.short_title)
