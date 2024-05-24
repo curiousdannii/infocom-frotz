@@ -10,10 +10,10 @@ a {
     color: #aee;
 }
 
+/* Front page */
 #games {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     margin: 0 auto;
     max-width: 600px;
 }
@@ -25,6 +25,38 @@ a {
 #games h2 img {
     display: block;
     margin: 0 auto;
+}
+
+/* Game page */
+html, body {
+    height: 100%;
+}
+
+#col {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 640px;
+}
+
+#heading {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    max-width: 640px;
+}
+
+#heading h1, #heading p {
+    font-size: 16px;
+    margin: 12px 0;
+}
+
+#inner {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+    justify-content: center;
 }
 
 #textinput {
