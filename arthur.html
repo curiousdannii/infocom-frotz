@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Arthur</h1>
-    <canvas id="canvas"></canvas>
-    <textarea id="textinput" autocapitalize="off" rows="1"></textarea>
-    <p><a href="index.html">Other games on Infocom Frotz</a></p>
+    <div id="col">
+        <div id="heading">
+            <h1>Arthur</h1>
+            <p><a href="arthur.pdf" target="_blank">Manual</a></p>
+            <p><a href="index.html" target="_blank">Other games</a></p>
+        </div>
+        <div id="inner">
+            <div id="game">
+                <canvas id="canvas"></canvas>
+                <textarea id="textinput" autocapitalize="off" rows="1"></textarea>
+            </div>
+        </div>
+    </div>
     <script>window.files = ["arthur-r74-s890714.z6", "Arthur.blb"]</script>
+    <script type="text/javascript" src="interface.js"></script>
     <script async type="text/javascript" src="sfrotz.js"></script>
   </body>
 </html>
