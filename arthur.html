@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Arthur: The Quest for Excalibur</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,interactive-widget=resizes-content">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,7 +15,15 @@
         </div>
         <div id="inner">
             <div id="game">
-                <canvas id="canvas"></canvas>
+                <div id="arthurmodes">
+                    <p data-keycode="112"><span class="arthurfull">Graphics</span><span class="arthurshort">Graph</span></p>
+                    <p data-keycode="113">Map</p>
+                    <p data-keycode="114"><span class="arthurfull">Inventory</span><span class="arthurshort">Inv</span></p>
+                    <p data-keycode="115">Score</p>
+                    <p data-keycode="116">Room</p>
+                    <p data-keycode="117"><span class="arthurfull">Text only</span><span class="arthurshort">Text</span></p>
+                </div>
+                <canvas id="canvas" height="400"></canvas>
                 <textarea id="textinput" autocapitalize="off" rows="1"></textarea>
             </div>
         </div>
