@@ -13,7 +13,7 @@ if [ -z "$(docker images -q infocom-frotz:$DOCKER_TAG 2> /dev/null)" ]; then
 fi
 
 PORTS="--use-port=freetype --use-port=libjpeg --use-port=libpng --use-port=sdl2 --use-port=sdl2_mixer --use-port=zlib"
-COMMON_OPTS="$PORTS"
+COMMON_OPTS="$PORTS -O3"
 COMP_OPTS="$COMMON_OPTS -DNO_EXECINFO_H"
 LINK_OPTS="$COMMON_OPTS -lidbfs.js --js-library ../src/frotz-library.js --pre-js ../src/preamble.js --profiling-funcs -sALLOW_MEMORY_GROWTH -sASYNCIFY -sENVIRONMENT=web"
 
