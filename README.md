@@ -12,4 +12,4 @@ Infocom's non-Z6 games should be played with [Parchment](https://iplayif.com/) i
 Building
 --------
 
-Run `./build.sh` to build Infocom Frotz. However, because of an [obscure Emscripten bug](https://github.com/emscripten-core/emscripten/issues/21930), the build will often not work. Run `rm frotz/sfrotz.js && ./build.sh` to rebuild it, until it works. This is for the moment preventing automatic builds and deployments.
+Run `./build.sh` to build Infocom Frotz.

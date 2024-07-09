@@ -11,7 +11,7 @@ Module.preRun = () => {
 
     // Set up the saves folder with IDBFS
     FS.mkdir('/saves')
-    FS.mount(IDBFS, {}, '/saves')
+    FS.mount(IDBFS, {autoPersist: true}, '/saves')
     FS.chdir('/saves')
     FS.syncfs(true, err => {
         if (err) {

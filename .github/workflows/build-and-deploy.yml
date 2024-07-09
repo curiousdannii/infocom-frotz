@@ -1,0 +1,25 @@
+name: build-and-deploy
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!gh-pages'
+  pull_request:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Build
+        if: 
+        run: ./build.sh
+      - name: Deploy to Pages 🚀
+        if: github.ref == 'refs/heads/master'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
