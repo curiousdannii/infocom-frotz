@@ -35,6 +35,22 @@ const storyfiles = [
         storyfile: 'zork0-r393-s890714.z6',
         title: 'Zork Zero: The Revenge of Megaboz',
     },
+    {
+        blorb: 'Sherlock.blb',
+        id: 'sherlock',
+        manual: 'sherlock.pdf',
+        short_title: 'Sherlock',
+        storyfile: 'sherlock-r26-s880127.z5',
+        title: 'Sherlock: The Riddle of the Crown Jewels',
+    },
+    {
+        blorb: 'Lurking.blb',
+        id: 'lurkinghorror',
+        manual: 'lurking.pdf',
+        short_title: 'The Lurking Horror',
+        storyfile: 'lurkinghorror-r221-s870918.z3',
+        title: 'The Lurking Horror',
+    },
 ]
 
 const template = `<!DOCTYPE html>
