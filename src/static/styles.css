@@ -2,7 +2,7 @@ body {
     background: #111;
     color: #ddd;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 1280px;
     text-align: center;
 }
 
@@ -37,14 +37,14 @@ html, body {
     flex-flow: column;
     height: 100%;
     margin: 0 auto;
-    max-width: 640px;
+    max-width: 1280px;
 }
 
 #heading, #arthurmodes {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    max-width: 640px;
+    max-width: 1280px;
 }
 
 #heading h1, #heading p {

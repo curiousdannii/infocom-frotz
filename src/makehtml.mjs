@@ -70,7 +70,7 @@ const template = `<!DOCTYPE html>
         </div>
         <div id="inner">
             <div id="game">ARTHURMODES
-                <canvas id="canvas" height="400"></canvas>
+                <canvas id="canvas" height="800"></canvas>
                 <textarea id="textinput" autocapitalize="off" rows="1"></textarea>
             </div>
         </div>
