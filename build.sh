@@ -31,6 +31,7 @@ docker run --rm -t \
 
 ./src/makehtml.mjs
 
-cp data/* dist/
+cp data/*.* dist/
+cp data/roboto/*.ttf dist/
 cp frotz/sfrotz.* dist/
 cp src/static/* dist/

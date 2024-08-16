@@ -1,0 +1,14 @@
+[Fonts]
+antialias=1
+fontdir=/
+# The default font is 14pt
+textroman=Roboto-Regular.ttf@14
+textbold=Roboto-Bold.ttf@14
+textitalic=Roboto-Italic.ttf@14
+textbolditalic=Roboto-BoldItalic.ttf@14
+# RobotoMono is larger than Frotz's default monotype font
+# So we're setting it to 11pt to fit in Zork Zero's banner
+fixedroman=RobotoMono-Regular.ttf@11
+fixedbold=RobotoMono-Bold.ttf@11
+fixeditalic=RobotoMono-Italic.ttf@11
+fixedbolditalic=RobotoMono-BoldItalic.ttf@11

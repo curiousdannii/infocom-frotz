@@ -75,7 +75,17 @@ const template = `<!DOCTYPE html>
             </div>
         </div>
     </div>
-    <script>window.files = ["STORYFILE", "BLORB"]</script>
+    <script>window.files = [
+        "STORYFILE", "BLORB", "sfrotz.rc",
+        "Roboto-Regular.ttf",
+        "Roboto-Bold.ttf",
+        "Roboto-Italic.ttf",
+        "Roboto-BoldItalic.ttf",
+        "RobotoMono-Regular.ttf",
+        "RobotoMono-Bold.ttf",
+        "RobotoMono-Italic.ttf",
+        "RobotoMono-BoldItalic.ttf",
+    ]</script>
     <script type="text/javascript" src="interface.js"></script>
     <script async type="text/javascript" src="sfrotz.js"></script>
   </body>
