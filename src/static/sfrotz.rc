@@ -1,0 +1,26 @@
+# Adopting double-sizes, multiplying all defaults by 2
+
+[Window]
+# the default is 640x400
+AcWidth = 1280
+AcHeight = 800
+
+[Fonts]
+antialias=1
+fontdir=/
+# The default font is 14pt
+textroman=Roboto-Regular.ttf@28
+textbold=Roboto-Bold.ttf@28
+textitalic=Roboto-Italic.ttf@28
+textbolditalic=Roboto-BoldItalic.ttf@28
+# RobotoMono is larger than Frotz's default monotype font
+# So we're setting it to 22pt (11pt x2 scaling factor) to fit in Zork Zero's banner
+fixedroman=RobotoMono-Regular.ttf@22
+fixedbold=RobotoMono-Bold.ttf@22
+fixeditalic=RobotoMono-Italic.ttf@22
+fixedbolditalic=RobotoMono-BoldItalic.ttf@22
+
+[Display]
+# The default scaling factor is 2, so we're doubling it
+Infocom V6 Scaling X=4
+Infocom V6 Scaling Y=4

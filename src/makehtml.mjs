@@ -70,12 +70,22 @@ const template = `<!DOCTYPE html>
         </div>
         <div id="inner">
             <div id="game">ARTHURMODES
-                <canvas id="canvas" height="400"></canvas>
+                <canvas id="canvas" height="800"></canvas>
                 <textarea id="textinput" autocapitalize="off" rows="1"></textarea>
             </div>
         </div>
     </div>
-    <script>window.files = ["STORYFILE", "BLORB"]</script>
+    <script>window.files = [
+        "STORYFILE", "BLORB", "sfrotz.rc",
+        "Roboto-Regular.ttf",
+        "Roboto-Bold.ttf",
+        "Roboto-Italic.ttf",
+        "Roboto-BoldItalic.ttf",
+        "RobotoMono-Regular.ttf",
+        "RobotoMono-Bold.ttf",
+        "RobotoMono-Italic.ttf",
+        "RobotoMono-BoldItalic.ttf",
+    ]</script>
     <script type="text/javascript" src="interface.js"></script>
     <script async type="text/javascript" src="sfrotz.js"></script>
   </body>
