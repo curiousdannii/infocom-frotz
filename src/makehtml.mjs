@@ -5,50 +5,44 @@ import fs from 'fs'
 
 const storyfiles = [
     {
-        blorb: 'Arthur.blb',
         id: 'arthur',
         manual: 'arthur.pdf',
         short_title: 'Arthur',
-        storyfile: 'arthur-r74-s890714.z6',
+        storyfile: 'arthur-r74-s890714-graphics.zblorb',
         title: 'Arthur: The Quest for Excalibur',
     },
     {
-        blorb: 'Journey.blb',
         id: 'journey',
         manual: 'journey.pdf',
         short_title: 'Journey',
-        storyfile: 'journey-r83-s890706.z6',
+        storyfile: 'journey-r83-s890706-graphics.zblorb',
         title: 'Journey: The Quest Begins',
     },
     {
-        blorb: 'Shogun.blb',
         id: 'shogun',
         short_title: 'Shōgun',
-        storyfile: 'shogun-r322-s890706.z6',
+        storyfile: 'shogun-r322-s890706-graphics.zblorb',
         title: `James Clavell's Shōgun`,
     },
     {
-        blorb: 'ZorkZero.blb',
         id: 'zorkzero',
         manual: 'zork0.pdf',
         short_title: 'Zork Zero',
-        storyfile: 'zork0-r393-s890714.z6',
+        storyfile: 'zork0-r393-s890714-graphics.zblorb',
         title: 'Zork Zero: The Revenge of Megaboz',
     },
     {
-        blorb: 'Sherlock.blb',
         id: 'sherlock',
         manual: 'sherlock.pdf',
         short_title: 'Sherlock',
-        storyfile: 'sherlock-r26-s880127.z5',
+        storyfile: 'sherlock-r26-s880127-sound.zblorb',
         title: 'Sherlock: The Riddle of the Crown Jewels',
     },
     {
-        blorb: 'Lurking.blb',
         id: 'lurkinghorror',
         manual: 'lurking.pdf',
         short_title: 'The Lurking Horror',
-        storyfile: 'lurkinghorror-r221-s870918.z3',
+        storyfile: 'lurkinghorror-r221-s870918-sound.zblorb',
         title: 'The Lurking Horror',
     },
 ]
@@ -75,7 +69,7 @@ const template = `<!DOCTYPE html>
             </div>
         </div>
     </div>
-    <script>window.files = ["STORYFILE", "BLORB"]</script>
+    <script>window.files = ["STORYFILE"]</script>
     <script type="text/javascript" src="interface.js"></script>
     <script async type="text/javascript" src="sfrotz.js"></script>
   </body>
@@ -94,7 +88,6 @@ const arthurmodes = `
 for (const story of storyfiles) {
     const html = template
         .replace('ARTHURMODES', story.id === 'arthur' ? arthurmodes : '')
-        .replace('BLORB', story.blorb)
         .replace('MANUAL', story.manual ? `<p><a href="${story.manual}" target="_blank">Manual</a></p>` : '')
         .replace('SHORTTITLE', story.short_title)
         .replace('STORYFILE', story.storyfile)
