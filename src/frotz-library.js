@@ -45,7 +45,7 @@ const FROTZ_JS = {
     },
 
     $registerTouchEventCallback(target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) {
-        if (!JSEvents.touchEvent) JSEvents.touchEvent = _malloc(1696);
+        if (!JSEvents.touchEvent) JSEvents.touchEvent = _malloc(1552);
         target = findEventTarget(target);
 
         var touchEventHandlerFunc = (e) => {
@@ -55,58 +55,55 @@ const FROTZ_JS = {
             // only changed touches in e.changedTouches, and touches on target at a.targetTouches), mark a boolean in
             // each Touch object so that we can later loop only once over all touches we see to marshall over to Wasm.
 
-            for (var i = 0; i < et.length; ++i) {
-                t = et[i];
+            for (let t of et) {
                 // Browser might recycle the generated Touch objects between each frame (Firefox on Android), so reset any
                 // changed/target states we may have set from previous frame.
                 t.isChanged = t.onTarget = 0;
                 touches[t.identifier] = t;
             }
             // Mark which touches are part of the changedTouches list.
-            for (var i = 0; i < e.changedTouches.length; ++i) {
-                t = e.changedTouches[i];
+            for (let t of e.changedTouches) {
                 t.isChanged = 1;
                 touches[t.identifier] = t;
             }
             // Mark which touches are part of the targetTouches list.
-            for (var i = 0; i < e.targetTouches.length; ++i) {
-                touches[e.targetTouches[i].identifier].onTarget = 1;
+            for (let t of e.targetTouches) {
+                touches[t.identifier].onTarget = 1;
             }
 
             var touchEvent = JSEvents.touchEvent;
             HEAPF64[((touchEvent)>>3)] = e.timeStamp;
-            var idx =((touchEvent)>>2);// Pre-shift the ptr to index to HEAP32 to save code size
-            HEAP32[idx + 3] = e.ctrlKey;
-            HEAP32[idx + 4] = e.shiftKey;
-            HEAP32[idx + 5] = e.altKey;
-            HEAP32[idx + 6] = e.metaKey;
-            idx += 7; // Advance to the start of the touch array.
+            HEAP8[touchEvent + 12] = e.ctrlKey;
+            HEAP8[touchEvent + 13] = e.shiftKey;
+            HEAP8[touchEvent + 14] = e.altKey;
+            HEAP8[touchEvent + 15] = e.metaKey;
+            var idx = touchEvent + 16;
             var targetRect = getBoundingClientRect(target);
             var numTouches = 0;
-            for (var i in touches) {
-                t = touches[i];
-                HEAP32[idx + 0] = t.identifier;
-                HEAP32[idx + 1] = t.screenX;
-                HEAP32[idx + 2] = t.screenY;
-                HEAP32[idx + 3] = t.clientX;
-                HEAP32[idx + 4] = t.clientY;
-                HEAP32[idx + 5] = t.pageX;
-                HEAP32[idx + 6] = t.pageY;
-                HEAP32[idx + 7] = t.isChanged;
-                HEAP32[idx + 8] = t.onTarget;
+            for (let t of Object.values(touches)) {
+                var idx32 = ((idx)>>2); // Pre-shift the ptr to index to HEAP32 to save code size
+                HEAP32[idx32 + 0] = t.identifier;
+                HEAP32[idx32 + 1] = t.screenX;
+                HEAP32[idx32 + 2] = t.screenY;
+                HEAP32[idx32 + 3] = t.clientX;
+                HEAP32[idx32 + 4] = t.clientY;
+                HEAP32[idx32 + 5] = t.pageX;
+                HEAP32[idx32 + 6] = t.pageY;
+                HEAP8[idx + 28] = t.isChanged;
+                HEAP8[idx + 29] = t.onTarget;
                 let x = t.clientX - (targetRect.left | 0)
                 let y = t.clientY - (targetRect.top  | 0)
                 if (typeof target.requestedwidth === 'number') {
                     x = x * target.dpi_scale
                     y = y * target.dpi_scale
                 }
-                HEAP32[idx + 9] = x
-                HEAP32[idx + 10] = y
+                HEAP32[idx32 + 8] = x;
+                HEAP32[idx32 + 9] = y;
 
-                idx += 13;
+                idx += 48;
 
                 if (++numTouches > 31) {
-                    break;
+                break;
                 }
             }
             HEAP32[(((touchEvent)+(8))>>2)] = numTouches;
