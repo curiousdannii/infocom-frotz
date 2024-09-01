@@ -19,6 +19,22 @@ const storyfiles = [
         title: 'Journey: The Quest Begins',
     },
     {
+        blorb: 'Lurking.blb',
+        id: 'lurkinghorror',
+        manual: 'lurking.pdf',
+        short_title: 'The Lurking Horror',
+        storyfile: 'lurkinghorror-r221-s870918.z3',
+        title: 'The Lurking Horror',
+    },
+    {
+        blorb: 'Sherlock.blb',
+        id: 'sherlock',
+        manual: 'sherlock.pdf',
+        short_title: 'Sherlock',
+        storyfile: 'sherlock-r26-s880127.z5',
+        title: 'Sherlock: The Riddle of the Crown Jewels',
+    },
+    {
         id: 'shogun',
         short_title: 'Shōgun',
         storyfile: 'shogun-r322-s890706-graphics.zblorb',
@@ -30,20 +46,6 @@ const storyfiles = [
         short_title: 'Zork Zero',
         storyfile: 'zork0-r393-s890714-graphics.zblorb',
         title: 'Zork Zero: The Revenge of Megaboz',
-    },
-    {
-        id: 'sherlock',
-        manual: 'sherlock.pdf',
-        short_title: 'Sherlock',
-        storyfile: 'sherlock-r26-s880127-sound.zblorb',
-        title: 'Sherlock: The Riddle of the Crown Jewels',
-    },
-    {
-        id: 'lurkinghorror',
-        manual: 'lurking.pdf',
-        short_title: 'The Lurking Horror',
-        storyfile: 'lurkinghorror-r221-s870918-sound.zblorb',
-        title: 'The Lurking Horror',
     },
 ]
 
@@ -69,7 +71,7 @@ const template = `<!DOCTYPE html>
             </div>
         </div>
     </div>
-    <script>window.files = ["STORYFILE"]</script>
+    <script>window.files = [FILES]</script>
     <script type="text/javascript" src="interface.js"></script>
     <script async type="text/javascript" src="sfrotz.js"></script>
   </body>
@@ -86,11 +88,15 @@ const arthurmodes = `
                 </div>`
 
 for (const story of storyfiles) {
+    const files = [story.storyfile]
+    if (story.blorb) {
+        files.push(story.blorb)
+    }
     const html = template
         .replace('ARTHURMODES', story.id === 'arthur' ? arthurmodes : '')
+        .replace('FILES', files.map(story => `"${story}"`).join(', '))
         .replace('MANUAL', story.manual ? `<p><a href="${story.manual}" target="_blank">Manual</a></p>` : '')
         .replace('SHORTTITLE', story.short_title)
-        .replace('STORYFILE', story.storyfile)
         .replace('TITLE', story.title)
     fs.writeFileSync(`dist/${story.id}.html`, html)
 }

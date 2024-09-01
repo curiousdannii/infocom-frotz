@@ -1,12 +1,14 @@
 // Infocom Frotz Emscripten preamble
 
 const files = window.files
-Module.arguments = ['/' + files[0]]
+Module.arguments = files.map(file => '/' + file)
 Module.canvas = document.getElementById('canvas')
 
 Module.preRun = () => {
-    // Load storyfile and blorb
-    FS.createPreloadedFile('/', files[0], files[0], true, false)
+    // Load files
+    for (const file of files) {
+        FS.createPreloadedFile('/', file, file, true, false)
+    }
 
     // Set up the saves folder with IDBFS
     FS.mkdir('/saves')
